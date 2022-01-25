@@ -1,16 +1,36 @@
 def who_is_bigger(a,b,c)
-	my_hash ={ "a" => a, "b"=> b,"c" => c} 
-	return (a==nil || b==nil || c==nil)? "nil detected": "#{my_hash.max_by{|k,v| v}[0]} is bigger"
-end
-	 	
-def reverse_upcase_noLTA(string)
-	return string.reverse.upcase.delete("LTA")
+ if a != nil && b !=nil && c !=nil
+  return "a is bigger" if a > b && a > c
+  return "b is bigger" if b > c && b > c
+  return "c is bigger" if c > b && c > a
+
+ else
+   return "nil detected"
+ end
+ end
+
+ def array_42(array)
+  if array.include?(42)
+    return true
+  else
+    return false
+ end
 end
 
-def array_42(numbers)
-	numbers.include?(42)
-end
-
-def magic_array(numbers)
-	numbers.flatten.uniq.sort.collect {|numbers| numbers*2}.select { |e| e % 3 != 0}	
+def magic_array(table)
+  new_table = []
+  table2 = []
+  table.each do |yolo|
+    if yolo.class == Array
+      table2 << yolo.join(",").to_i
+    else
+      table2 << yolo
+    end
+  end
+  table2.sort.each do |yolo2|
+    if yolo2 % 3 != 0
+      new_table << (yolo2 * 2)
+    end
+  end
+  return new_table.uniq
 end

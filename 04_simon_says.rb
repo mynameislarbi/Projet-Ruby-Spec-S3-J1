@@ -20,4 +20,4 @@ end
 
 def titleize(phrase)
 	return phrase.split.map!.with_index { |a,i| (i!=0 && (a == "the" || a == "and")) ? a : a.capitalize }.join(' ')
-end	
+end
